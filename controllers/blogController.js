@@ -149,7 +149,6 @@ exports.deleteBlogController = async (req, res) => {
 exports.userBlogController = async (req, res) => {
     try {
         const userBlog = await userModel.findById(req.params.id).populate("blogs");
-
         if (!userBlog) {
             return res.status(404).send({
                 success: false,
