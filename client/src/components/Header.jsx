@@ -11,15 +11,29 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../redux/store";
 // import { authActions } from "../redux/store";
 // import toast from "react-hot-toast";
 
 const Header = () => {
   //global state
   const isLogin = useSelector((state) => state.isLogin);
-  console.log(isLogin);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // console.log(isLogin);
   //state
   const [value, setValue] = useState();
+
+  //handle logout
+  const handleLogout = () => {
+    try {
+      dispatch(authActions.logout());
+      alert("Logout Successfull");
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <AppBar position="sticky">
@@ -59,7 +73,9 @@ const Header = () => {
               </>
             )}
             {isLogin && (
-              <Button sx={{ margin: 1, color: "white" }}>Logout</Button>
+              <Button sx={{ margin: 1, color: "white" }} onClick={handleLogout}>
+                Logout
+              </Button>
             )}
           </Box>
         </Toolbar>

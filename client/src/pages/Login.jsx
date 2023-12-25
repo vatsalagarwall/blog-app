@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { authActions } from "../redux/store";
 const Login = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -25,6 +27,7 @@ const Login = () => {
         password: inputs.password,
       });
       if (data.success) {
+        dispatch(authActions.login());
         alert("User login successfully");
         navigate("/");
       }
