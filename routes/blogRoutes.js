@@ -28,6 +28,6 @@ router.get("/get-blog/:id", getBlogByIdController);
 router.delete("/delete-blog/:id", deleteBlogController);
 
 //GET || user blog
-// router.get("/user-blog/:id", userBlogController);
+router.get("/user-blog/:id", userBlogController);
 
 module.exports = router;
