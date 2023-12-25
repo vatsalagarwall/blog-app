@@ -33,27 +33,27 @@ exports.createBlogController = async (req, res) => {
     try {
         const { title, description, image, user } = req.body;
         //validation
-        if (!title || !description || !image) {
+        if (!title || !description || !image || !user) {
             return res.status(400).send({
                 success: false,
                 message: "Please Provide ALl Fields",
             });
         }
-        // const existingUser = await userModel.findById(user);
-        //validation
-        // if (!existingUser) {
-        //     return res.status(404).send({
-        //         success: false,
-        //         message: "unable to find user",
-        //     });
-        // }
+        const existingUser = await userModel.findById(user);
+        //validaton
+        if (!existingUser) {
+            return res.status(404).send({
+                success: false,
+                message: "unable to find user",
+            });
+        }
 
-        const newBlog = new blogModel({ title, description, image });
-        // const session = await mongoose.startSession();
+        const newBlog = new blogModel({ title, description, image, user });
+        const session = await mongoose.startSession();
         // session.startTransaction();
-        // await newBlog.save({ session });
-        // existingUser.blogs.push(newBlog);
-        // await existingUser.save({ session });
+        await newBlog.save({ session });
+        existingUser.blogs.push(newBlog);
+        await existingUser.save({ session });
         // await session.commitTransaction();
         await newBlog.save();
         return res.status(201).send({
@@ -65,7 +65,7 @@ exports.createBlogController = async (req, res) => {
         console.log(error);
         return res.status(400).send({
             success: false,
-            message: "Error WHile Creating blog",
+            message: "Error While Creating blog",
             error,
         });
     }
@@ -125,12 +125,12 @@ exports.getBlogByIdController = async (req, res) => {
 //Delete Blog
 exports.deleteBlogController = async (req, res) => {
     try {
-        await blogModel.findByIdAndDelete(req.params.id)
+        const blog = await blogModel.findByIdAndDelete(req.params.id).populate("user");
         // .findOneAndDelete(req.params.id)
 
         //     .populate("user");
-        // await blog.user.blogs.pull(blog);
-        // await blog.user.save();
+        await blog.user.blogs.pull(blog);
+        await blog.user.save();
         return res.status(200).send({
             success: true,
             message: "Blog Deleted!",
