@@ -39,9 +39,9 @@ exports.createBlogController = async (req, res) => {
                 message: "Please Provide ALl Fields",
             });
         }
-        const exisitingUser = await userModel.findById(user);
-        //validaton
-        if (!exisitingUser) {
+        const existingUser = await userModel.findById(user);
+        //validation
+        if (!existingUser) {
             return res.status(404).send({
                 success: false,
                 message: "unable to find user",
@@ -52,8 +52,8 @@ exports.createBlogController = async (req, res) => {
         const session = await mongoose.startSession();
         session.startTransaction();
         await newBlog.save({ session });
-        exisitingUser.blogs.push(newBlog);
-        await exisitingUser.save({ session });
+        existingUser.blogs.push(newBlog);
+        await existingUser.save({ session });
         await session.commitTransaction();
         await newBlog.save();
         return res.status(201).send({
