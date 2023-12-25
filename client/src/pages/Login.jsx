@@ -55,15 +55,7 @@ const Login = () => {
           >
             Login
           </Typography>
-          <TextField
-            placeholder="name"
-            value={inputs.name}
-            onChange={handleChange}
-            name="name"
-            margin="normal"
-            type={"text"}
-            required
-          />
+
           <TextField
             placeholder="email"
             value={inputs.email}
@@ -93,9 +85,9 @@ const Login = () => {
           </Button>
           <Button
             sx={{ borderRadius: 3, marginTop: 3 }}
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/register")}
           >
-            Login
+            Register
           </Button>
         </Box>
       </form>
