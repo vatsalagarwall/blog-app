@@ -28,6 +28,7 @@ const Header = () => {
   const handleLogout = () => {
     try {
       dispatch(authActions.logout());
+      localStorage.clear();
       alert("Logout Successfull");
       navigate("/login");
     } catch (error) {
