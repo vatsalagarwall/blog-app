@@ -10,11 +10,15 @@ import {
   Tab,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // import { authActions } from "../redux/store";
 // import toast from "react-hot-toast";
 
 const Header = () => {
+  //global state
+  const isLogin = useSelector((state) => state.isLogin);
+  console.log(isLogin);
+  //state
   const [value, setValue] = useState();
   return (
     <>
