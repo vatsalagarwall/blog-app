@@ -13,6 +13,7 @@ function App() {
       <Header />
       <Toaster />
       <Routes>
+        {/* <Route path="/" element={<Login />} /> */}
         <Route path="/" element={<Blogs />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/my-blogs" element={<UserBlogs />} />
