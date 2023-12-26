@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
+import axios from "axios";
 
 const CreateBlog = () => {
+  const id = localStorage.getItem("userId");
+  const navigate = useNavigate("");
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
     image: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(inputs);
     try {
-      const { data } = axios.post("/api/v1/blog/create-blog", {
+      const { data } = await axios.post("/api/v1/blog/create-blog", {
         title: inputs.title,
         description: inputs.description,
         image: inputs.image,
+        user: id,
       });
+      if (data?.success) {
+        alert("Blog Created");
+        navigate("/my-blogs");
+      }
     } catch (error) {
       console.log(error);
     }
