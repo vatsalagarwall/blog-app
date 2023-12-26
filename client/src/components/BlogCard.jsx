@@ -25,8 +25,8 @@ export default function BlogCard({
   const navigate = useNavigate();
   const formattedTime = new Date(time).toLocaleString();
   const handleEdit = () => {
-    toast.success("Blog Edited");
     navigate(`/blog-details/${id}`);
+    // toast.success("Blog Edited");
   };
 
   const handleDelete = async () => {
@@ -123,15 +123,20 @@ export default function BlogCard({
       <div class="card-body">
         {isUser && (
           <div>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
           </div>
         )}
         <h5 class="card-title">{title}</h5>
         <p class="card-text">{description}</p>
-        <a href="#" class="btn btn-primary">
+        <p class="card-text">
+          <small>
+            By: {username} at {formattedTime}
+          </small>
+        </p>
+        {/* <a href="#" class="btn btn-primary">
           Go somewhere
-        </a>
+        </a> */}
       </div>
     </div>
   );
