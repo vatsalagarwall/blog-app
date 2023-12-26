@@ -36,7 +36,7 @@ exports.createBlogController = async (req, res) => {
         if (!title || !description || !image || !user) {
             return res.status(400).send({
                 success: false,
-                message: "Please Provide ALl Fields",
+                message: "Please Provide All Fields",
             });
         }
         const existingUser = await userModel.findById(user);
