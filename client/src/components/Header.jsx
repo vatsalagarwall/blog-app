@@ -12,12 +12,12 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/store";
-// import { authActions } from "../redux/store";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Header = () => {
   //global state
-  const isLogin = useSelector((state) => state.isLogin);
+  let isLogin = useSelector((state) => state.isLogin);
+  isLogin = isLogin || localStorage.getItem("userId");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // console.log(isLogin);
@@ -29,7 +29,7 @@ const Header = () => {
     try {
       dispatch(authActions.logout());
       localStorage.clear();
-      alert("Logout Successfull");
+      toast.success("Logout Successfull");
       navigate("/login");
     } catch (error) {
       console.log(error);

@@ -10,7 +10,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function BlogCard({
@@ -24,6 +24,7 @@ export default function BlogCard({
 }) {
   const navigate = useNavigate();
   const handleEdit = () => {
+    toast.success("Blog Edited");
     navigate(`/blog-details/${id}`);
   };
 
@@ -31,7 +32,7 @@ export default function BlogCard({
     try {
       const { data } = await axios.delete(`/api/v1/blog/delete-blog/${id}`);
       if (data?.success) {
-        alert("Blog Deleted");
+        toast.success("Blog Deleted");
         window.location.reload();
       }
     } catch (error) {
