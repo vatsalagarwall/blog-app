@@ -16,7 +16,7 @@ const Blogs = () => {
   };
   useEffect(() => {
     getAllBlogs();
-  });
+  }, []);
   // return (
   //   <div>
   //     {blogs &&
