@@ -44,8 +44,8 @@ export default function BlogCard({
   return (
     <Card
       sx={{
-        width: "100%", // Full width on small screens
-        maxWidth: "30%", // 30% width on larger screens
+        width: "100%",
+        maxWidth: "30%",
         margin: "auto",
         mt: 2,
         padding: 2,
@@ -54,9 +54,9 @@ export default function BlogCard({
           boxShadow: "10px 10px 20px #ccc",
         },
         "@media (max-width: 600px)": {
-          maxWidth: "100%", // Full width on extra-small screens
+          maxWidth: "100%",
         },
-        border: "2px solid #ccc", // Border added
+        border: "2px solid #ccc",
       }}
     >
       {isUser && (
