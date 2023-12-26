@@ -21,7 +21,7 @@ router.post("/create-blog", createBlogController);
 //PUT || update blog
 router.put("/update-blog/:id", updateBlogController);
 
-//GET || SIngle Blog Details
+//GET || Single Blog Details
 router.get("/get-blog/:id", getBlogByIdController);
 
 //DELETE || delete blog
