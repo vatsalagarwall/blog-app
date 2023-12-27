@@ -77,6 +77,7 @@ const UserBlogs = () => {
             description={blog.description}
             image={blog.image}
             username={blog.user.username}
+            // username={blog?.user ? blog.user.username : "Unknown User"}
             time={blog.createdAt}
           />
         ))

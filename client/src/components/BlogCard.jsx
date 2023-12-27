@@ -23,6 +23,7 @@ export default function BlogCard({
   isUser,
 }) {
   const navigate = useNavigate();
+  const formattedTime = new Date(time).toLocaleString();
   const handleEdit = () => {
     navigate(`/blog-details/${id}`);
   };
@@ -68,7 +69,7 @@ export default function BlogCard({
           </Avatar>
         }
         title={username}
-        subheader={time}
+        subheader={formattedTime}
       />
       <CardMedia component="img" height="194" image={image} alt="Paella dish" />
       <CardContent>
