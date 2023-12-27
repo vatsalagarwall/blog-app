@@ -81,5 +81,20 @@ export default function BlogCard({
         </Typography>
       </CardContent>
     </Card>
+    // <div class="card" style={{ width: "18rem" }}>
+    //   <img class="card-img-top" src="..." alt="Card image cap" />
+    //   <div class="card-body">
+    //     {isUser && (
+    //       <div>
+    //         <p onClick={handleDelete}>Delete </p>
+    //         <p onClick={handleEdit}>Edit </p>
+    //       </div>
+    //     )}
+    //     <p>By: {username}</p>
+    //     <p>At: {formattedTime}</p>
+    //     <h5 class="card-title">{title}</h5>
+    //     <p class="card-text">{description}</p>
+    //   </div>
+    // </div>
   );
 }
