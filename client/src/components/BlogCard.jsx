@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-// import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function BlogCard({
@@ -29,21 +28,26 @@ export default function BlogCard({
       console.log(error);
     }
   };
+
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      <div class="card" style={{ width: "18rem" }}>
-        <img class="card-img-top" src={image} alt="Blog image" />
-        <div class="card-body">
-          {isUser && (
-            <div>
-              <p onClick={handleDelete}>Delete </p>
-              <p onClick={handleEdit}>Edit </p>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-4 mb-4">
+          <div className="card" style={{ width: "18rem" }}>
+            <img className="card-img-top" src={image} alt="Blog image" />
+            <div className="card-body">
+              {isUser && (
+                <div>
+                  <p onClick={handleDelete}>Delete </p>
+                  <p onClick={handleEdit}>Edit </p>
+                </div>
+              )}
+              <p>{username}</p>
+              <p>At: {formattedTime}</p>
+              <h5 className="card-title">{title}</h5>
+              <p className="card-text">{description}</p>
             </div>
-          )}
-          <p>{username}</p>
-          <p>At: {formattedTime}</p>
-          <h5 class="card-title">{title}</h5>
-          <p class="card-text">{description}</p>
+          </div>
         </div>
       </div>
     </div>
