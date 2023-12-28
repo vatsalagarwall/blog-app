@@ -7,7 +7,6 @@ const Blogs = () => {
   const getAllBlogs = async () => {
     try {
       const { data } = await axios.get("/api/v1/blog/all-blog");
-      console.log(data);
       if (data?.success) {
         setBlogs(data?.blogs);
       }
@@ -28,8 +27,7 @@ const Blogs = () => {
             title={blog?.title}
             description={blog?.description}
             image={blog?.image}
-            // username={blog?.user?.username}
-            username={blog?.user ? blog.user.username : "Unknown User"}
+            username={blog?.user?.username}
             time={blog.createdAt}
           />
         ))}

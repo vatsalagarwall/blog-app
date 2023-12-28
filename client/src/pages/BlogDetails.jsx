@@ -44,7 +44,7 @@ const BlogDetails = () => {
         title: inputs.title,
         description: inputs.description,
         image: inputs.image,
-        // user: id,
+        user: id,
       });
       if (data?.success) {
         toast.success("Blog Updated");
