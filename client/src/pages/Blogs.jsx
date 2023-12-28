@@ -60,9 +60,21 @@ const Blogs = () => {
     getAllBlogs();
   }, []);
 
+  // const [news, setNews] = useState("");
+  // function searchNews() {
+  //   axios.get("https://dev.to/api/articles/latest").then((res) => {
+  //     console.log(res.data);
+  //     console.log(res.data.map((item) => item.title));
+  //   });
+  // }
+  // useEffect(() => {
+  //   searchNews();
+  // }, []);
+
   return (
     <div className="container" style={{ marginTop: "20px" }}>
       <div className="row">
+        {/* <div onLoad={() => searchNews()}></div> */}
         {blogs &&
           blogs.map((blog) => (
             <div key={blog?._id} className="col-md-4 mb-4">
