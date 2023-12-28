@@ -312,7 +312,9 @@ export default function BlogCard({
                   <line x1="8" x2="8" y1="2" y2="6" />
                   <line x1="3" x2="21" y1="10" y2="10" />
                 </svg>
-                <span style={{ marginLeft: "5px" }}>{formattedTime}</span>
+                <span style={{ marginLeft: "5px", color: "grey" }}>
+                  {formattedTime}
+                </span>
               </p>
               <h5 className="card-title" style={{ fontWeight: "bold" }}>
                 {title}
