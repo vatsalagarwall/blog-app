@@ -68,7 +68,8 @@ export default function BlogCard({
             {username}
           </Avatar>
         }
-        title={username}
+        // title={username}
+        title={localStorage.getItem("username")}
         subheader={formattedTime}
       />
       <CardMedia component="img" height="194" image={image} alt="Paella dish" />
@@ -90,7 +91,7 @@ export default function BlogCard({
     //         <p onClick={handleEdit}>Edit </p>
     //       </div>
     //     )}
-    //     <p>By: {username}</p>
+    //     <p>By:{localStorage.getItem("username")}</p>
     //     <p>At: {formattedTime}</p>
     //     <h5 class="card-title">{title}</h5>
     //     <p class="card-text">{description}</p>
