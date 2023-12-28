@@ -27,8 +27,8 @@ const Blogs = () => {
             title={blog?.title}
             description={blog?.description}
             image={blog?.image}
-            // username={blog?.user?.username}
-            username={localStorage.getItem("username")}
+            username={blog?.user?.username}
+            // username={localStorage.getItem("username")}
             time={blog.createdAt}
           />
         ))}
