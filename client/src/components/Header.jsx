@@ -71,15 +71,15 @@ const Header = () => {
                 value={getActiveTab()}
                 onChange={handleTabChange}
               >
-                <MenuItem variant="body1" sx={{ margin: 1.5, color: "black" }}>
-                  Hi, {localStorage.getItem("username")}
-                </MenuItem>
                 <Tab label="Blogs" component={Link} to="/blogs" />
                 <Tab label="My Blogs" component={Link} to="/my-blogs" />
                 <Tab label="Create Blog" component={Link} to="/create-blog" />
                 {/* <Button sx={{ margin: 1, color: "black" }}>
                   Hi, {localStorage.getItem("username")}
                 </Button> */}
+                <MenuItem variant="body1" sx={{ margin: 1.5, color: "black" }}>
+                  Hi, {localStorage.getItem("username")}
+                </MenuItem>
               </Tabs>
             )}
           </Hidden>
