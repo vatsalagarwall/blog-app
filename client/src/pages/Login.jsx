@@ -29,6 +29,7 @@ const Login = () => {
       });
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
+        localStorage.setItem("username");
         dispatch(authActions.login());
         toast.success("User login successfully");
         navigate("/");
