@@ -114,7 +114,7 @@ const UserBlogs = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: "20px" }}>
       <div className="row">
         {blogs && blogs.length > 0 ? (
           blogs.map((blog) => (
@@ -125,7 +125,8 @@ const UserBlogs = () => {
                 title={blog.title}
                 description={blog.description}
                 image={blog.image}
-                username={blog?.user?.username}
+                // username={blog?.user?.username}
+                username={localStorage.getItem("username")}
                 time={blog.createdAt}
               />
             </div>
