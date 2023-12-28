@@ -30,19 +30,21 @@ export default function BlogCard({
     }
   };
   return (
-    <div class="card" style={{ width: "18rem" }}>
-      <img class="card-img-top" src="..." alt="Card image cap" />
-      <div class="card-body">
-        {isUser && (
-          <div>
-            <p onClick={handleDelete}>Delete </p>
-            <p onClick={handleEdit}>Edit </p>
-          </div>
-        )}
-        <p>{username}</p>
-        <p>At: {formattedTime}</p>
-        <h5 class="card-title">{title}</h5>
-        <p class="card-text">{description}</p>
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <div class="card" style={{ width: "18rem" }}>
+        <img class="card-img-top" src={image} alt="Blog image" />
+        <div class="card-body">
+          {isUser && (
+            <div>
+              <p onClick={handleDelete}>Delete </p>
+              <p onClick={handleEdit}>Edit </p>
+            </div>
+          )}
+          <p>{username}</p>
+          <p>At: {formattedTime}</p>
+          <h5 class="card-title">{title}</h5>
+          <p class="card-text">{description}</p>
+        </div>
       </div>
     </div>
   );
