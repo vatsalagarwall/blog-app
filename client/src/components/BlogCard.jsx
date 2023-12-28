@@ -42,8 +42,11 @@ export default function BlogCard({
             />
             <div className="card-body">
               {isUser && (
-                <div>
-                  <p onClick={handleEdit}>
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <button
+                    onClick={handleEdit}
+                    style={{ backgroundColor: "white", border: "none" }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -59,8 +62,11 @@ export default function BlogCard({
                       <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
                       <path d="m15 5 4 4" />
                     </svg>{" "}
-                  </p>
-                  <p onClick={handleDelete}>
+                  </button>
+                  <button
+                    onClick={handleDelete}
+                    style={{ backgroundColor: "white", border: "none" }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -79,7 +85,7 @@ export default function BlogCard({
                       <line x1="10" x2="10" y1="11" y2="17" />
                       <line x1="14" x2="14" y1="11" y2="17" />
                     </svg>{" "}
-                  </p>
+                  </button>
                 </div>
               )}
               <p>
