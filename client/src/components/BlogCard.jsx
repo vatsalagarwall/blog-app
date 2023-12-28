@@ -291,7 +291,8 @@ export default function BlogCard({
                   <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                   <circle cx="12" cy="7" r="4" />
                 </svg>
-                {username}
+
+                <span style={{ marginLeft: "5px" }}>{username}</span>
               </p>
               <p>
                 <svg
@@ -311,9 +312,11 @@ export default function BlogCard({
                   <line x1="8" x2="8" y1="2" y2="6" />
                   <line x1="3" x2="21" y1="10" y2="10" />
                 </svg>
-                {formattedTime}
+                <span style={{ marginLeft: "5px" }}>{formattedTime}</span>
               </p>
-              <h5 className="card-title">{title}</h5>
+              <h5 className="card-title" style={{ fontWeight: "bold" }}>
+                {title}
+              </h5>
               <p className="card-text" style={{ fontSize: "15px" }}>
                 {description.substring(0, 200)}...
               </p>
