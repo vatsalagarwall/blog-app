@@ -356,6 +356,7 @@ export default function BlogCard({
                       >
                         {selectedTitle}
                       </h5>
+
                       <button
                         type="button"
                         className="btn-close"
